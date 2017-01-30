@@ -1,14 +1,15 @@
 
 ---------------------------------------------------------------------------
 
-Release:      pykaraoke v0.7.5
-Date:         26/08/2011
+Release:      pykaraoke v0.8.0
+Date:         26/09/2016
 Author:       Kelvin Lawson <kelvinl@users.sourceforge.net>
 License:      LGPL
 Website:      http://www.kibosh.org/pykaraoke/
 Contributors: John Schneiderman <JohnMS@member.fsf.org>
               William Ferrell <willfe@gmail.com>
               David Rose <pykar@ddrose.com>
+			  Ish Lewis <https://github.com/ishegatron>
 
 ---------------------------------------------------------------------------
 
@@ -32,6 +33,8 @@ one database.
 No song files are provided - this package provides you with the player
 needed to play your own karaoke song files.
 
+Version 0.8.0 adds functionality to download MPEG files from YouTube and other sites.
+
 ---------------------------------------------------------------------------
 
 INSTALLATION (LINUX, SOURCE INSTALLS)
@@ -42,6 +45,8 @@ PyKaraoke requires the following libraries to be installed:
  * Pygame (www.pygame.org)
  * WxPython (www.wxpython.org)
  * SDL source distribution (www.libsdl.org)
+ * Pattern (http://www.clips.ua.ac.be/pattern)
+ * Youtube-dl (https://rg3.github.io/youtube-dl/)
 
 Optional libraries are as follows:
 
@@ -65,6 +70,8 @@ distro's package manager. For example Debian users can install all
 prerequisites using:
 	# apt-get install python-dev python-pygame libwxgtk-python 
                   libsdl-dev python-mutagen
+	# pip install pattern
+	# pip install youtube-dl
 
 With the prerequisites installed, unzip the release and run the following
 as root:

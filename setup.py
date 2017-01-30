@@ -93,7 +93,7 @@ setupArgs = {
   'license' : 'LGPL',
   'long_description' : 'PyKaraoke - CD+G/MPEG/KAR Karaoke Player',
   'py_modules' : [ "pycdgAux", "pycdg", "pykaraoke_mini",
-                   "pykaraoke", "pykar", "pykconstants",
+                   "pykaraoke", "pykytdownloader", "pykar", "pykconstants",
                    "pykdb", "pykenv", "pykmanager",
                    "pykplayer", "pykversion", "pympg", "performer_prompt" ],
   'ext_modules' : [Extension("_pycdgAux", ["_pycdgAux.c"],
