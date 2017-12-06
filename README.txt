@@ -9,7 +9,7 @@ Website:      http://www.kibosh.org/pykaraoke/
 Contributors: John Schneiderman <JohnMS@member.fsf.org>
               William Ferrell <willfe@gmail.com>
               David Rose <pykar@ddrose.com>
-			  Ish Lewis <https://github.com/ishegatron>
+              Ish Lewis <https://github.com/ishegatron>
 
 ---------------------------------------------------------------------------
 
@@ -65,21 +65,34 @@ distribution, and instead require the NumPy Python module
 If these libraries are not already installed on your system, you can
 download them from the websites listed.
 
+Make sure your system date time is set.  Not doing this may prevent pip and your Certificate Trusts from working correctly:
+	
+	# sudo date -s "2016-11-02 $(date +%H:%M:%S)"
+
 Linux users may find these packages are available directly from their
 distro's package manager. For example Debian users can install all
 prerequisites using:
-	# apt-get install python-dev python-pygame libwxgtk-python 
-                  libsdl-dev python-mutagen
-	# pip install pattern
-	# pip install youtube-dl
+	# sudo apt-get install python-dev python-pygame python-wxgtk2.8 python-wxtools wx2.8-i18n libwxgtk2.8-dev libgtk2.0-dev libsdl-dev libsdl2-dev python-mutagen xterm
+	# sudo pip install pattern
+	# sudo pip install youtube-dl
 
 With the prerequisites installed, unzip the release and run the following
 as root:
 
-	# python setup.py install
+	# sudo python setup.py install
 
 This installs the executables into /usr/bin, and you can then run
 PyKaraoke from anywhere using "pykaraoke".
+
+Move icons from /usr/local/share/applications to /usr/share/applications using the file manager running as root:
+	
+	# sudo pcmanfm
+	
+Move pykaraoke folder from /usr/local/share to /usr/share
+
+Navigate to the /usr/local/bin folder and change the pykaraoke folder permissions so that pykaraoke script can run and clicking the icon will work:
+	
+	# sudo chmod +x pykaraoke
 
 Alternatively you can run PyKaraoke without installing by simply
 unzipping and running "python pykaraoke.py" from the unzip location.
@@ -296,6 +309,20 @@ Once all that is done, you need to use the cross compiler to build
 _pycdgAux.so. A sample script called cross-build-gp2x.sh is provided to do
 this. Then it is simply a matter of copying this file, along with all of
 the .py files, to the GP2X.
+
+---------------------------------------------------------------------------
+
+RASPBIAN CONFIGURATION
+
+Open the PyKaraoke program and configure the MPEG/AVI player as follows to force audio out of 3.5mm jack:
+
+	# xterm -fullscreen -fg black -bg black -e omxplayer -o local -r "%(file)s"
+
+Uncheck "Use sub-thread to wait for external viewer"
+
+If xterm doesn't seem to work that well, download mplayer and change the external MPG player back to mplayer (mplayer -fs "%(file)s"):
+
+	# sudo apt-get install mplayer
 
 ---------------------------------------------------------------------------
 
